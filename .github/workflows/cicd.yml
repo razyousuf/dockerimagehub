@@ -15,6 +15,7 @@ jobs:
         run: docker build . --file DockerFile --tag workflow-test:$(date +%s)
 
   docker-build:
+    needs: docker-build-first
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
